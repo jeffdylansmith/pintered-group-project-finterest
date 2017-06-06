@@ -2,8 +2,14 @@
 
 const app = angular.module("Finterest", ["ngRoute"]);
 
+
+
 app.config(function($routeProvider) {
 	$routeProvider
+	.when('/', {
+        templateUrl: 'partials/auth.html',
+        controller: 'authCtrl'
+    })
 	.when('/pins', {
 		templateUrl: 'partials/pins-view.html',
 		controller: 'PinsViewCtrl'
