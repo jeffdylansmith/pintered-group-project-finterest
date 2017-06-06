@@ -141,14 +141,14 @@ const getAllBoards = () => {
       Object.keys(itemCollection).forEach((key) => {
       	/////?????
         itemCollection[key].boardId = key;
-        pins.push(itemCollection[key]boardId);
+        pins.push(itemCollection[key].boardId);
      });
      resolve(pins);
     }).catch((error) => {
       reject(error);
     });
   });
-}; 
+};
 
 const getUserBoards = (userId) => {
 
