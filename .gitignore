@@ -3,3 +3,4 @@ lib/bower_components
 .DS_Store
 lib/.sass-cache
 css/
+/values/
