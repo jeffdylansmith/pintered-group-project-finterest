@@ -10,7 +10,11 @@ app.config(function($routeProvider) {
         templateUrl: 'partials/auth.html',
         controller: 'authCtrl'
     })
-    .otherwise('/');
+	.when('/pins', {
+		templateUrl: 'partials/pins-view.html',
+		controller: 'PinsViewCtrl'
+	})
+	.otherwise('/');
 });
 
 app.run(($location, FBcreds) => {
