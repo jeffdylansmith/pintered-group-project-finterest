@@ -7,6 +7,9 @@
   	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+	<div ng-app="Finterest">
+		<div ng-view></div>
+	</div>
 
 <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -18,7 +21,9 @@
 <script type="text/javascript" src="app/values/fb-creds.js"></script>
 
 <!--Factories-->
-<script type="text/javascript" src="./app/factories/*PLACEHOLDER*.js"></script>
+<script type="text/javascript" src="./app/factories/authFactory.js"></script>
+<script type="text/javascript" src="./app/factories/dataFactory.js"></script>
+<script type="text/javascript" src="./app/factories/filterFactory.js"></script>
 
 <!--Controllers-->
 <script type="text/javascript" src="./app/controllers/*PLACEHOLDER*.js"></script>
