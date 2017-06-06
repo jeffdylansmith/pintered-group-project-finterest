@@ -122,7 +122,7 @@ const getAllPins = () => {
       Object.keys(itemCollection).forEach((key) => {
       	/////  ????
         itemCollection[key].pinId = key;
-        tasks.push(itemCollection[key].pinId);
+        pins.push(itemCollection[key].pinId);
      });
      resolve(pins);
     }).catch((error) => {
@@ -141,7 +141,7 @@ const getAllBoards = () => {
       Object.keys(itemCollection).forEach((key) => {
       	/////?????
         itemCollection[key].boardId = key;
-        tasks.push(itemCollection[key]boardId);
+        pins.push(itemCollection[key]boardId);
      });
      resolve(pins);
     }).catch((error) => {
