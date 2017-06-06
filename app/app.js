@@ -2,10 +2,15 @@
 
 const app = angular.module("Finterest", ["ngRoute"]);
 
+
+
 app.config(function($routeProvider) {
-	// $routeProvider
-	// .when()
-	// .otherwise();
+	$routeProvider
+	.when('/', {
+        templateUrl: 'partials/auth.html',
+        controller: 'authCtrl'
+    })
+    .otherwise('/');
 });
 
 app.run(($location, FBcreds) => {
