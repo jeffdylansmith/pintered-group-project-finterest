@@ -2,7 +2,14 @@
 
 //get and show all pins belonging to user from FB. remove unwanted pins
 
-app.controller("PinsVewCtrl", function (DataFactory, $scope, $location) {
+app.controller("PinsViewCtrl", function (DataFactory, $scope, $location) {
 	console.log("~ PinsVewCtrl yay! ~");
 	// body...
+	// $scope.getAllPins = function(){
+		DataFactory.getAllPins()
+		.then((pins) => {
+			console.log("pins", pins);
+			$scope.pins = pins;
+		});
+	// };
 });

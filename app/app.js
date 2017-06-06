@@ -4,10 +4,11 @@ const app = angular.module("Finterest", ["ngRoute"]);
 
 app.config(function($routeProvider) {
 	$routeProvider
-	.when('/', function(){
-		templateUrl: ("'partials/pins-view.html'")
+	.when('/pins', {
+		templateUrl: 'partials/pins-view.html',
+		controller: 'PinsViewCtrl'
 	})
-	.otherwise();
+	.otherwise('/');
 });
 
 app.run(($location, FBcreds) => {
