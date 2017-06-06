@@ -3,7 +3,7 @@
 app.factory("DataFactory", function($q, $http, FBcreds) {
 	//FB interaction - editBoard addBoard addPin editPin getPin removePin removeBoard getBoard getAllPins
 
-const editBoard = (newBoardName) => {
+const editBoard = (newBoardName, boardId) => {
     return $q((resolve, reject) => {
       let newName = JSON.stringify(newBoardName);
       $http.patch(`${FBcreds.databaseURL}/boards/${boardId}.json`, newName)
@@ -46,7 +46,7 @@ const addPin = (newPin) => {
   };
 
 
-const editPin = (pinId, editedpin) => {
+const editPin = (pinId, editedPin) => {
     return $q((resolve, reject) => {
       let newObj = JSON.stringify(editedPin);
       $http.patch(`${FBcreds.databaseURL}/pins/${pinId}.json`, newObj)
@@ -62,7 +62,7 @@ const editPin = (pinId, editedpin) => {
 
 const getPin = (pinId) => {
     return $q(function(resolve, reject){
-      $http.get(`${FBcreds.databaseURL}/pins/${taskId}.json`)
+      $http.get(`${FBcreds.databaseURL}/pins/${pinId}.json`)
       .then(function(itemObject){
         resolve(itemObject.data);
       })
@@ -141,9 +141,9 @@ const getAllBoards = () => {
       Object.keys(itemCollection).forEach((key) => {
       	/////?????
         itemCollection[key].boardId = key;
-        pins.push(itemCollection[key]boardId);
+        boards.push(itemCollection[key].boardId);
      });
-     resolve(pins);
+     resolve(boards);
     }).catch((error) => {
       reject(error);
     });
@@ -152,15 +152,15 @@ const getAllBoards = () => {
 
 const getUserBoards = (userId) => {
 
-}
+};
 
 const getUserPins = (userId) => {
 
-}
+};
 
 const getBoardPins = (boardId) => {
 
-}
+};
 
 
  return {
