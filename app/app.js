@@ -3,9 +3,9 @@
 const app = angular.module("Finterest", ["ngRoute"]);
 
 app.config(function($routeProvider) {
-	$routeProvider
-	.when()
-	.otherwise();
+	// $routeProvider
+	// .when()
+	// .otherwise();
 });
 
 app.run(($location, FBcreds) => {
