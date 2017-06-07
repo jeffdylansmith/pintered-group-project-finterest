@@ -206,10 +206,6 @@ const getBoardPins = (boardId) => {
     resolve(itemCollection);
     });
   });
-};
-
-
-
 
  return {
     addPin,
