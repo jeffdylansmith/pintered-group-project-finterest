@@ -38,7 +38,8 @@ app.config(function($routeProvider) {
 	})
     .when('/userBoards', {
         templateUrl: 'partials/boards-view.html',
-        controller: 'BoardsViewCtrl'
+        controller: 'BoardsViewCtrl',
+        resolve: {isAuth}
     })
 	.otherwise('/');
 });

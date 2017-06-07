@@ -45,6 +45,18 @@ const addPin = (newPin) => {
     });
   };
 
+const addUser = (newUser) => {
+    return $q((resolve, reject) => {
+      let newObject = JSON.stringify(newUser);
+      $http.put(`${FBcreds.databaseURL}/users.json`, newObject)
+      .then ((itemID) => {
+        resolve(itemID);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+    });
+  };
 
 const editPin = (pinId, editedPin) => {
     return $q((resolve, reject) => {
@@ -174,6 +186,7 @@ const getBoardPins = (boardId) => {
 
  return {
     addPin,
+    addUser,
     getPin,
     getUserPins,
     getAllPins,

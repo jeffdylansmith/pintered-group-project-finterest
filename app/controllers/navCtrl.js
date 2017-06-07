@@ -2,8 +2,13 @@
 
 //Authorization and SearchTermData... and other stuff?
 
-app.controller("NavCtrl", function ($scope, authFactory, $location) {
+app.controller("NavCtrl", function ($scope, authFactory, DataFactory, $location) {
 	console.log("~ NavCtrl yay! ~");
+
+	let userObj = {
+		name: "",
+		uid: "",
+	};
 
 	$scope.isLoggedIn = false;
 
@@ -11,6 +16,11 @@ app.controller("NavCtrl", function ($scope, authFactory, $location) {
     if (user) {
       $scope.isLoggedIn = true;
       console.log("currentUser logged in", $scope.isLoggedIn);
+
+      userObj.name = user.displayName;
+      userObj.uid = user.uid;
+
+      DataFactory.addUser(userObj);
       $scope.$apply();
     } else {
       $scope.isLoggedIn = false;
