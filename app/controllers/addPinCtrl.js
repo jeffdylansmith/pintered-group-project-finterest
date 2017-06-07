@@ -5,4 +5,5 @@
 app.controller("AddPinCtrl", function () {
 	console.log("~ AddPinCtrl yay! ~");
 	// body...
+
 });
