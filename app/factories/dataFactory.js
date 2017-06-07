@@ -18,15 +18,24 @@ const editBoard = (newBoardName, boardId) => {
 
 
 const addBoard = (newBoardName) => {
-
+      return $q((resolve, reject) => {
       let newObject = {
         uid: authFactory.getUser(),
         title: newBoardName
       };
       console.log("newBoardObject");
       JSON.stringify(newObject);
-      $http.post(`${FBcreds.databaseURL}/boards/.json`, newObject);
-  };
+      $http.post(`${FBcreds.databaseURL}/boards/.json`, newObject)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+
 
 
 const addPin = (newPin) => {
