@@ -160,7 +160,7 @@ const getUserBoards = (userId) => {
     let itemCollection = itemObject.data;
     resolve(itemCollection);
     });
-  });  
+  });
 };
 
 const getUserPins = (userId) => {
