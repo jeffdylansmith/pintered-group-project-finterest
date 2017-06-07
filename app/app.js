@@ -46,6 +46,10 @@ app.config(function($routeProvider) {
         controller: 'BoardsViewCtrl',
         resolve: {isAuth}
     })
+    .when('/boardPins', {
+    	templateUrl:'partials/pins-view',
+    	controller: 'boar'
+    })
 	.otherwise('/');
 });
 
