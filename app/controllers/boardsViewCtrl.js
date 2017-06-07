@@ -5,19 +5,30 @@
 app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope, $routeParams) {
 	console.log("~ BoardsViewCtrl yay! ~", $routeParams);
 	let user = authFactory.getUser();
-	DataFactory.getUserBoards(user)
-	.then((userBoards) => {
-		console.log(userBoards);
-		$scope.boards = userBoards;
-	});
+	$scope.getBoards = (user) => {
+		
+		DataFactory.getUserBoards(user)
+		.then((userBoards) => {
+			console.log(userBoards);
+			$scope.boards = userBoards;
+		});
+	};
 
 	$scope.addBoard = (newBoardName) => {
-		DataFactory.addBoard(newBoardName);
+		
 		console.log("newBoardName", newBoardName);
+		DataFactory.addBoard(newBoardName)
+		.then(() => {
+			$scope.getBoards(user);
+		});
 	};
 
 	$scope.removeBoard = (board) => {
 		console.log("Hey", board.boardId);
-		DataFactory.removeBoard(board.boardId);
+		DataFactory.removeBoard(board.boardId)
+		.then(() => {
+			$scope.getBoards(user);
+		});
 	};
+	$scope.getBoards(user);
 });
