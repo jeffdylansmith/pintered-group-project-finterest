@@ -169,7 +169,11 @@ const getUserBoards = (userId) => {
     $http.get(`${FBcreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${userId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
-    resolve(itemCollection);
+    Object.keys(itemCollection).forEach((key) => {
+    itemCollection[key].boardId = key;
+    userBoards.push(itemCollection[key]);
+    });
+    resolve(userBoards);
     });
   });
 };
@@ -180,15 +184,28 @@ const getUserPins = (userId) => {
     $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${userId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
-    resolve(itemCollection);
+    Object.keys(itemCollection).forEach((key) => {
+    itemCollection[key].boardId = key;
+    userPins.push(itemCollection[key]);
+    });
+    resolve(userPins);
     });
   });
 };
 
-const getBoardPins = (boardId, userId) => {
-
-};
-
+const getBoardPins = (boardId) => {
+    let boardPins = [];
+    return $q((resolve, reject) => {
+    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${boardId}"`)
+    .then((itemObject) => {
+    let itemCollection = itemObject.data;
+    Object.keys(itemCollection).forEach((key) => {
+    itemCollection[key].boardId = key;
+    boardPins.push(itemCollection[key]);
+    });
+    resolve(itemCollection);
+    });
+  });
 
  return {
     addPin,
