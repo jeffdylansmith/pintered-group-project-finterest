@@ -17,7 +17,7 @@ app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope) {
 	}; 
 
 	$scope.removeBoard = (board) => {
-		console.log("Hey", board.title);
-		DataFactory.removeBoard(board.title);
+		console.log("Hey", board.boardId);
+		DataFactory.removeBoard(board.boardId);
 	};
 });
