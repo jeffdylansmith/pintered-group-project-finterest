@@ -2,7 +2,19 @@
 
 const app = angular.module("Finterest", ["ngRoute"]);
 
-
+let isAuth = (authFactory, $location) => new Promise ((resolve, reject) => {
+	authFactory.isAuthenticated()
+	.then((userExists) => {
+		if(userExists) {
+			console.log("Authenticated, yay!");
+			resolve();
+		}else {
+			console.log("Authentication REJECTED");
+			reject();
+			$location.path('/');
+		}
+	});
+});
 
 app.config(function($routeProvider) {
 	$routeProvider
@@ -12,7 +24,13 @@ app.config(function($routeProvider) {
     })
 	.when('/pins', {
 		templateUrl: 'partials/pins-view.html',
-		controller: 'PinsViewCtrl'
+		controller: 'PinsViewCtrl',
+		resolve: {isAuth}
+	})
+	.when('/add-pin', {
+		templateUrl: 'partials/add-pin.html',
+		controller: 'AddPinCtrl',
+		resolve: {isAuth}
 	})
 	.otherwise('/');
 });

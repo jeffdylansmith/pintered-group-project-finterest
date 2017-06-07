@@ -48,15 +48,12 @@ let currentUser = null;
         return currentUser;
     };
 
-
-	let provider = new firebase.auth.GoogleAuthProvider();
-
-	let authWithProvider= function(){
+	let authWithProvider= function(provider){
         return firebase.auth().signInWithPopup(provider);
     };
 
 
-    return {authWithProvider};
+    return {createUser, loginUser, logoutUser, isAuthenticated, getUser, authWithProvider};
 
 
 	//currentUser, createUser, loginUser, logoutUser, isAuthenticated getUser
