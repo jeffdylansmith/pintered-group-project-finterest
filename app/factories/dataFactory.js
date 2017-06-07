@@ -18,15 +18,24 @@ const editBoard = (newBoardName, boardId) => {
 
 
 const addBoard = (newBoardName) => {
-    
+      return $q((resolve, reject) => {
       let newObject = {
         uid: authFactory.getUser(),
         title: newBoardName
       };
       console.log("newBoardObject");
       JSON.stringify(newObject);
-      $http.post(`${FBcreds.databaseURL}/boards/.json`, newObject);
-  };
+      $http.post(`${FBcreds.databaseURL}/boards/.json`, newObject)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+
 
 
 const addPin = (newPin) => {
@@ -43,10 +52,10 @@ const addPin = (newPin) => {
     });
   };
 
-const addUser = (newUser) => {
+const addUser = (uid, newUser) => {
     return $q((resolve, reject) => {
       let newObject = JSON.stringify(newUser);
-      $http.put(`${FBcreds.databaseURL}/users.json`, newObject)
+      $http.put(`${FBcreds.databaseURL}/users/${uid}.json`, newObject)
       .then ((itemID) => {
         resolve(itemID);
       })
@@ -98,6 +107,7 @@ const removePin = (pinID) => {
 
 const removeBoard = (boardID) => {
     return $q((resolve, reject) => {
+      console.log("made it to data factory");
       $http.delete(`${FBcreds.databaseURL}/boards/${boardID}.json`)
       .then((response) => {
         resolve(response);
@@ -168,19 +178,44 @@ const getUserBoards = (userId) => {
     $http.get(`${FBcreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${userId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
-    resolve(itemCollection);
+    Object.keys(itemCollection).forEach((key) => {
+    itemCollection[key].boardId = key;
+    userBoards.push(itemCollection[key]);
+    });
+    resolve(userBoards);
     });
   });
 };
 
 const getUserPins = (userId) => {
-
+	let userPins = [];
+    return $q((resolve, reject) => {
+    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${userId}"`)
+    .then((itemObject) => {
+    let itemCollection = itemObject.data;
+    Object.keys(itemCollection).forEach((key) => {
+    itemCollection[key].boardId = key;
+    userPins.push(itemCollection[key]);
+    });
+    resolve(userPins);
+    });
+  });
 };
 
 const getBoardPins = (boardId) => {
-
+    let boardPins = [];
+    return $q((resolve, reject) => {
+    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="boardid"&equalTo="${boardId}"`)
+    .then((itemObject) => {
+    let itemCollection = itemObject.data;
+    Object.keys(itemCollection).forEach((key) => {
+    itemCollection[key].boardId = key;
+    boardPins.push(itemCollection[key]);
+    });
+    resolve(itemCollection);
+    });
+  });
 };
-
 
  return {
     addPin,

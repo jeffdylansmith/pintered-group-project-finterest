@@ -26,6 +26,11 @@ app.config(function($routeProvider) {
         templateUrl: 'partials/auth.html',
         controller: 'authCtrl'
     })
+    .when('/userPins', {
+        templateUrl: 'partials/user-pins.html',
+        controller: 'UserPinsCtrl',
+        resolve: {isAuth}
+    })
 	.when('/pins', {
 		templateUrl: 'partials/pins-view.html',
 		controller: 'PinsViewCtrl',
@@ -40,6 +45,10 @@ app.config(function($routeProvider) {
         templateUrl: 'partials/boards-view.html',
         controller: 'BoardsViewCtrl',
         resolve: {isAuth}
+    })
+    .when('/userBoards/:boardId', {
+    	templateUrl:'partials/user-pins',
+    	controller: 'BoardPinsCtrl'
     })
 	.otherwise('/');
 });

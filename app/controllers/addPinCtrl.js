@@ -20,7 +20,8 @@ app.controller("AddPinCtrl", function ($scope, DataFactory, authFactory) {
 		$scope.boards = boards;
 		console.log("boards", boards);
 	});
-	$scope.addPin = () => {
+	$scope.addPin = (event) => {
+		console.log($scope.pin);
 		DataFactory.addPin($scope.pin);
 	};
 });
