@@ -2,8 +2,8 @@
 
 //get and show all boards belonging to user from FB. remove unwanted boards
 
-app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope) {
-	console.log("~ BoardsViewCtrl yay! ~");
+app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope, $routeParams) {
+	console.log("~ BoardsViewCtrl yay! ~", $routeParams);
 	let user = authFactory.getUser();
 	DataFactory.getUserBoards(user)
 	.then((userBoards) => {

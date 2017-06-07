@@ -196,7 +196,7 @@ const getUserPins = (userId) => {
 const getBoardPins = (boardId) => {
     let boardPins = [];
     return $q((resolve, reject) => {
-    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${boardId}"`)
+    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="boardid"&equalTo="${boardId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
     Object.keys(itemCollection).forEach((key) => {
