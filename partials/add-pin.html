@@ -3,14 +3,8 @@
 		<label for="url">Url: </label>
 		<input type="text" id="url" class="form-control" placeholder="https://..." ng-model="pin.url">
 
-		<label for="titel">Url: </label>
+		<label for="titel">Title: </label>
 		<input type="text" id="title" class="form-control" placeholder="Enter Title" ng-model="pin.title">
-
-		<div class="dropdown">
-			<ul class="dropdown-menu">
-				<li ng-repeat="board in boards">{{board.boardid}}</li>
-			</ul>
-		</div>
 
 		<label for="getboard">Board: </label>
 		<select ng-model="pin.boardid" id="getboard">
@@ -19,6 +13,6 @@
 			</option>
 		</select>
 
-		<button class="btn" ng-click="addPin()">Add Pin</button>
+		<button class="btn form-control-clear" ng-click="addPin(event)">Add Pin</button>
 	</form>
 </div>

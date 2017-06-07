@@ -52,10 +52,10 @@ const addPin = (newPin) => {
     });
   };
 
-const addUser = (newUser) => {
+const addUser = (uid, newUser) => {
     return $q((resolve, reject) => {
       let newObject = JSON.stringify(newUser);
-      $http.put(`${FBcreds.databaseURL}/users.json`, newObject)
+      $http.put(`${FBcreds.databaseURL}/users/${uid}.json`, newObject)
       .then ((itemID) => {
         resolve(itemID);
       })
@@ -205,7 +205,7 @@ const getUserPins = (userId) => {
 const getBoardPins = (boardId) => {
     let boardPins = [];
     return $q((resolve, reject) => {
-    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${boardId}"`)
+    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="boardid"&equalTo="${boardId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
     Object.keys(itemCollection).forEach((key) => {
@@ -216,6 +216,7 @@ const getBoardPins = (boardId) => {
     });
   });
 };
+
  return {
     addPin,
     addUser,

@@ -1,7 +1,7 @@
 
 <div class="container">
 	<div ng-repeat="board in boards">
-		<a href="#!/" id="{{board}}"><h3>{{board.title}}</h3></a>
+		<a href="#!/userBoards/{{board.boardId}}" id="{{board.boardId}}"><h3>{{board.title}}</h3></a>
     <span ng-click="removeBoard(board)" class="glyphicon glyphicon-remove"></span>
 	</div>
 
