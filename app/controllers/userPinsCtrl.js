@@ -15,5 +15,11 @@ app.controller("UserPinsCtrl", function (DataFactory, $scope, $location, authFac
 		});
 	};
 
+
+	$scope.removePin = (pin) => {
+		console.log("Hey", pin);
+		DataFactory.removePin(pin.pinId);
+	};
+
 	$scope.getUserPins();
 });

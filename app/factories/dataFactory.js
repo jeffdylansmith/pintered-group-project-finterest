@@ -185,7 +185,7 @@ const getUserPins = (userId) => {
   });
 };
 
-const getBoardPins = (boardId) => {
+const getBoardPins = (boardId, userId) => {
 
 };
 
