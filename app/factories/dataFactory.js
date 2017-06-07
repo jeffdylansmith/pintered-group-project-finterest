@@ -1,6 +1,6 @@
 	"use strict";
 
-app.factory("DataFactory", function($q, $http, FBcreds) {
+app.factory("DataFactory", function($q, $http, FBcreds, authFactory) {
 	//FB interaction - editBoard addBoard addPin editPin getPin removePin removeBoard getBoard getAllPins
 
 const editBoard = (newBoardName, boardId) => {
@@ -17,17 +17,15 @@ const editBoard = (newBoardName, boardId) => {
   };
 
 
-const addBoard = (newBoard) => {
-    return $q((resolve, reject) => {
-      let newObject = JSON.stringify(newBoard);
-      $http.post(`${FBcreds.databaseURL}/boards.json`, newObject)
-      .then ((itemID) => {
-        resolve(itemID);
-      })
-      .catch((error) => {
-        reject(error);
-      });
-    });
+const addBoard = (newBoardName) => {
+    
+      let newObject = {
+        uid: authFactory.getUser(),
+        title: newBoardName
+      };
+      console.log("newBoardObject");
+      JSON.stringify(newObject);
+      $http.post(`${FBcreds.databaseURL}/boards/.json`, newObject);
   };
 
 

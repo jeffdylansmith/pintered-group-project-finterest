@@ -1,16 +1,13 @@
 <div ng-repeat="board in boards">
-	<p id="{{board.boardId}}">{{board.boardName}}</p>
+	<p id="{{board.boardId}}">{{board.title}}</p>
 </div>
 
 <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Board Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type your New Board Name Here...">
+    <label>Board Name</label>
+    <input type="text"  ng-model="newBoardName" placeholder="Type your New Board Name Here...">
   </div>
-
-
-
-  <button type="submit" class="btn btn-primary">Add Board</button>
+  <button type="submit" class="btn btn-primary" ng-click="addBoard(newBoardName)">Add Board</button>
 
 </form>
 
