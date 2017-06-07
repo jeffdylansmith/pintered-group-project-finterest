@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="col-sm-3" ng-repeat="pin in pins">
 			<img src="{{pin.url}}" class="img-responsive">
+			<span ng-click="removePin(pin)" class="glyphicon glyphicon-remove"></span>
 			<a href="#!/add-pin"><button class="btn">Save Pin</button></a>
 		</div>
 	</div>

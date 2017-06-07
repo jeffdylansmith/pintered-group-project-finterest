@@ -98,6 +98,7 @@ const removePin = (pinID) => {
 
 const removeBoard = (boardID) => {
     return $q((resolve, reject) => {
+      console.log("made it to data factory");
       $http.delete(`${FBcreds.databaseURL}/boards/${boardID}.json`)
       .then((response) => {
         resolve(response);

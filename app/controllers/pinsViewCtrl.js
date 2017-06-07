@@ -14,4 +14,9 @@ app.controller("PinsViewCtrl", function (DataFactory, $scope, $location) {
 	};
 
 	$scope.getAllPins();
+
+	$scope.removePin = (pin) => {
+		console.log("Hey", pin);
+		DataFactory.removePin(pin.pinId);
+	};
 });
