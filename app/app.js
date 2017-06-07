@@ -32,6 +32,10 @@ app.config(function($routeProvider) {
 		controller: 'AddPinCtrl',
 		resolve: {isAuth}
 	})
+    .when('/userBoards', {
+        templateUrl: 'partials/boards-view.html',
+        controller: 'BoardsViewCtrl'
+    })
 	.otherwise('/');
 });
 
