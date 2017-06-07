@@ -15,7 +15,7 @@
                     <li><a ng-href="#!/PLACEHOLDER=STRETCH">Explore</a></li>
                     <li><a ng-href="#!/profile">Profile</a></li>
                     <li><a ng-href="#!/userBoards" ng-show="isLoggedIn">Boards</a></li>
-                    <li><a ng-href="#!/userPins" ng-show="isLoggedIn">Your Pins</a></li>
+                    <li><a ng-href="#!/userPins" ng-show="isLoggedIn" ng-controller="PinsViewCtrl">Your Pins</a></li>
                     <li><a ng-href="#!/login" ng-show="!isLoggedIn">Login</a></li>
                     <li><a ng-href="#!/logout" ng-show="isLoggedIn" ng-controller="authCtrl" ng-click="logout()">Logout</a></li>
                 </ul>
