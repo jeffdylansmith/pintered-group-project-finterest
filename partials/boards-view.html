@@ -1,16 +1,16 @@
-<div ng-repeat="board in boards">
-	<p id="{{board.boardId}}">{{board.title}}</p>
-	<span ng-click="removeBoard(board)" class="glyphicon glyphicon-remove"></span>
+
+<div class="container">
+	<div ng-repeat="board in boards">
+		<a href="#!/"><h3 id="{{board.boardId}}">{{board.title}}</h3></a>
+    <span ng-click="removeBoard(board)" class="glyphicon glyphicon-remove"></span>
+	</div>
+
+	<form>
+	  <div class="form-group">
+	    <label>Board Name</label>
+	    <input type="text"  ng-model="newBoardName" placeholder="Type your New Board Name Here...">
+	  </div>
+	  <button type="submit" class="btn btn-primary" ng-click="addBoard(newBoardName)">Add Board</button>
+
+	</form>
 </div>
-
-<form>
-  <div class="form-group">
-    <label>Board Name</label>
-    <input type="text"  ng-model="newBoardName" placeholder="Type your New Board Name Here...">
-  </div>
-  <button type="submit" class="btn btn-primary" ng-click="addBoard(newBoardName)">Add Board</button>
-
-</form>
-
-
-<!-- Create a form to add a new board -->
