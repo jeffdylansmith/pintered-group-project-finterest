@@ -155,7 +155,7 @@ const getAllBoards = () => {
 const getUserBoards = (userId) => {
     let userBoards = [];
     return $q((resolve, reject) => {
-    $http.get(`${FBcreds.databaseURL}/boards.json?orderBy="${userId}"&equalTo="${userId}"`)
+    $http.get(`${FBcreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${userId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
     resolve(itemCollection);

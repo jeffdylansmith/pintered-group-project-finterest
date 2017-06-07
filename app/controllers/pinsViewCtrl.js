@@ -5,11 +5,11 @@
 app.controller("PinsViewCtrl", function (DataFactory, $scope, $location) {
 	console.log("~ PinsVewCtrl yay! ~");
 	// body...
-	// $scope.getAllPins = function(){
+	$scope.getAllPins = function(){
 		DataFactory.getAllPins()
 		.then((pins) => {
 			console.log("pins", pins);
 			$scope.pins = pins;
 		});
-	// };
+	};
 });

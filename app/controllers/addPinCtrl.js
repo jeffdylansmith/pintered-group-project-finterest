@@ -15,7 +15,11 @@ app.controller("AddPinCtrl", function ($scope, DataFactory, authFactory) {
 		title: "",
 
 	};
-	DataFactory.getUserBoards();
+	DataFactory.getUserBoards(user)
+	.then((boards) => {
+		$scope.boards = boards;
+		console.log("boards", boards);
+	});
 	$scope.addPin = () => {
 		DataFactory.addPin($scope.pin);
 	};

@@ -8,8 +8,16 @@
 
 		<div class="dropdown">
 			<ul class="dropdown-menu">
+				<li ng-repeat="board in boards">{{board.boardid}}</li>
 			</ul>
 		</div>
+
+		<label for="getboard">Board: </label>
+		<select ng-model="pin.boardid" id="getboard">
+			<option ng-repeat="board in boards" value="{{board.boardid}}">
+				{{board.boardid}}
+			</option>
+		</select>
 
 		<button class="btn" ng-click="addPin()">Add Pin</button>
 	</form>
