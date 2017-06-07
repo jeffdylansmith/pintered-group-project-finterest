@@ -14,6 +14,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/pins-view.html',
 		controller: 'PinsViewCtrl'
 	})
+    .when('/userBoards', {
+        templateUrl: 'partials/boards-veiw.html',
+        controller: 'BoardsViewCtrl'
+    })
 	.otherwise('/');
 });
 

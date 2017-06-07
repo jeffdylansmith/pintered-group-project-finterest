@@ -153,7 +153,14 @@ const getAllBoards = () => {
 };
 
 const getUserBoards = (userId) => {
-
+    let userBoards = [];
+    return $q((resolve, reject) => {
+    $http.get(`${FBcreds.databaseURL}/boards/.json`)
+    .then((itemObject) => {
+    let itemCollection = itemObject.data;
+    resolve(itemCollection);
+    });
+  });  
 };
 
 const getUserPins = (userId) => {
