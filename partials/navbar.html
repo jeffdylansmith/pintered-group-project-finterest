@@ -14,7 +14,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a ng-href="#!/PLACEHOLDER=STRETCH">Explore</a></li>
                     <li><a ng-href="#!/profile">Profile</a></li>
-                    <li><a ng-href="#!/logout" ng-controller="authCtrl" ng-click="logout()">Logout</a></li>
+                    <li><a ng-href="#!/login" ng-show="!isLoggedIn">Login</a></li>
+                    <li><a ng-href="#!/logout" ng-show="isLoggedIn" ng-controller="authCtrl" ng-click="logout()">Logout</a></li>
                 </ul>
             </div>
         </div>

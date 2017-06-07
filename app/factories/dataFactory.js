@@ -45,6 +45,18 @@ const addPin = (newPin) => {
     });
   };
 
+const addUser = (newUser) => {
+    return $q((resolve, reject) => {
+      let newObject = JSON.stringify(newUser);
+      $http.put(`${FBcreds.databaseURL}/users.json`, newObject)
+      .then ((itemID) => {
+        resolve(itemID);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+    });
+  };
 
 const editPin = (pinId, editedPin) => {
     return $q((resolve, reject) => {
@@ -155,7 +167,7 @@ const getAllBoards = () => {
 const getUserBoards = (userId) => {
     let userBoards = [];
     return $q((resolve, reject) => {
-    $http.get(`${FBcreds.databaseURL}/boards.json?orderBy="${userId}"&equalTo="${userId}"`)
+    $http.get(`${FBcreds.databaseURL}/boards.json?orderBy="uid"&equalTo="${userId}"`)
     .then((itemObject) => {
     let itemCollection = itemObject.data;
     resolve(itemCollection);
@@ -174,6 +186,7 @@ const getBoardPins = (boardId) => {
 
  return {
     addPin,
+    addUser,
     getPin,
     getUserPins,
     getAllPins,

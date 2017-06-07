@@ -1,8 +1,8 @@
 <div class="container-fluid">
-	<div class="row" ng-repeat="pin in pins">
-		<div class="col-md-3">
-			<img src="{{pin.pinURL}}" class="img-responsive">
-			<button class="btn">Add to Board</button>
+	<div class="row">
+		<div class="col-md-3" ng-repeat="pin in pins">
+			<img src="{{pin.url}}" class="img-responsive">
+			<a href="#!/add-pin"><button class="btn">Save Pin</button></a>
 		</div>
 	</div>
 </div>
