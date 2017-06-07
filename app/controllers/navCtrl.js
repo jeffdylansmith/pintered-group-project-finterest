@@ -20,7 +20,7 @@ app.controller("NavCtrl", function ($scope, authFactory, DataFactory, $location)
       userObj.name = user.displayName;
       userObj.uid = user.uid;
 
-      DataFactory.addUser(userObj);
+      DataFactory.addUser(user.uid, userObj);
       $scope.$apply();
     } else {
       $scope.isLoggedIn = false;

@@ -43,10 +43,10 @@ const addPin = (newPin) => {
     });
   };
 
-const addUser = (newUser) => {
+const addUser = (uid, newUser) => {
     return $q((resolve, reject) => {
       let newObject = JSON.stringify(newUser);
-      $http.put(`${FBcreds.databaseURL}/users.json`, newObject)
+      $http.put(`${FBcreds.databaseURL}/users/${uid}.json`, newObject)
       .then ((itemID) => {
         resolve(itemID);
       })
@@ -206,6 +206,7 @@ const getBoardPins = (boardId) => {
     resolve(itemCollection);
     });
   });
+};
 
  return {
     addPin,
