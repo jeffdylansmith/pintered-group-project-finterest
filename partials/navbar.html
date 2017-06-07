@@ -10,10 +10,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Finterest</a>
+            <a class="navbar-brand" href="#!/pins">Finterest</a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a ng-href="#!/PLACEHOLDER=STRETCH">Explore</a></li>
                     <li><a ng-href="#!/profile">Profile</a></li>
+                    <li><a ng-href="#!/userBoards" ng-show="isLoggedIn">Boards</a></li>
+                    <li><a ng-href="#!/userPins" ng-show="isLoggedIn" ng-controller="PinsViewCtrl">Your Pins</a></li>
                     <li><a ng-href="#!/login" ng-show="!isLoggedIn">Login</a></li>
                     <li><a ng-href="#!/logout" ng-show="isLoggedIn" ng-controller="authCtrl" ng-click="logout()">Logout</a></li>
                 </ul>

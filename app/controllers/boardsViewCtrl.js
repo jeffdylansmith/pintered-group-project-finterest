@@ -8,11 +8,11 @@ app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope) {
 	DataFactory.getUserBoards(user)
 	.then((userBoards) => {
 		console.log(userBoards);
-		$scope.boards = userBoards;	
+		$scope.boards = userBoards;
 	});
 
 	$scope.addBoard = (newBoardName) => {
 		DataFactory.addBoard(newBoardName);
 		console.log("newBoardName", newBoardName);
-	}; 
+	};
 });

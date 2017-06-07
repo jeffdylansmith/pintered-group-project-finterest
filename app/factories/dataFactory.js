@@ -18,7 +18,7 @@ const editBoard = (newBoardName, boardId) => {
 
 
 const addBoard = (newBoardName) => {
-    
+
       let newObject = {
         uid: authFactory.getUser(),
         title: newBoardName
@@ -174,7 +174,14 @@ const getUserBoards = (userId) => {
 };
 
 const getUserPins = (userId) => {
-
+	let userPins = [];
+    return $q((resolve, reject) => {
+    $http.get(`${FBcreds.databaseURL}/pins.json?orderBy="uid"&equalTo="${userId}"`)
+    .then((itemObject) => {
+    let itemCollection = itemObject.data;
+    resolve(itemCollection);
+    });
+  });
 };
 
 const getBoardPins = (boardId) => {
