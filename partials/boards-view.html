@@ -3,18 +3,21 @@
 
 <!--user boards-->
 <div class="container">
-	<h4>Boards</h4>
-	<div ng-repeat="board in boards">
-		<a href="#!/userBoards/{{board.boardId}}" id="{{board.boardId}}"><h3>{{board.title}}</h3></a>
-    <span ng-click="removeBoard(board)" class="glyphicon glyphicon-remove"></span>
-	</div>
-
-	<form>
+<form>
 	  <div class="form-group">
-	    <label>Board Name</label>
+	    <label>Create a New Board:</label>
 	    <input type="text" class="form-control" ng-model="newBoardName" placeholder="Type your New Board Name Here...">
 	  </div>
 	  <button type="reset" class="btn btn-primary" ng-click="addBoard(newBoardName)">Add Board</button>
 
 	</form>
+	<p><h3>Your Boards:</h3></p>
+	<div class="container">
+		<div class="row">
+			<div ng-repeat="board in boards" class="col-sm-4">
+				<a href="#!/userBoards/{{board.boardId}}" id="{{board.boardId}}"><h3>{{board.title}}</h3></a>
+		    	<span ng-click="removeBoard(board)" class="glyphicon glyphicon-remove"></span>
+			</div>
+		</div>
+	</div>
 </div>
