@@ -25,10 +25,25 @@ app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope, $ro
 
 	$scope.removeBoard = (board) => {
 		console.log("Hey", board.boardId);
-		DataFactory.removeBoard(board.boardId)
+		DataFactory.removeBoard(board.boardId);
+		DataFactory.getBoardPins(board.boardId)
+		.then((badPins) => {
+			console.log(badPins);
+			for(let x in badPins){
+				DataFactory.removePin(badPins[x].pinId);
+				console.log("badPins", badPins[x].pinId);
+			}	
+		})
 		.then(() => {
 			$scope.getBoards(user);
 		});
 	};
 	$scope.getBoards(user);
 });
+
+
+
+
+
+
+

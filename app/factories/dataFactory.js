@@ -209,7 +209,7 @@ const getBoardPins = (boardId) => {
     .then((itemObject) => {
     let itemCollection = itemObject.data;
     Object.keys(itemCollection).forEach((key) => {
-    itemCollection[key].boardId = key;
+    itemCollection[key].pinId = key;
     boardPins.push(itemCollection[key]);
     });
     resolve(itemCollection);
