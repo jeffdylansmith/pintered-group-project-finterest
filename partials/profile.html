@@ -1,11 +1,10 @@
 <div ng-controller="ProfileCtrl" class="jumbotron">
-
 	<div class="container">
 		  <h3>{{currentUser}}</h3>
 		  	<img src="/img/default_user_pic.png" class="pull-right" id="profile-pic"/>
 		  <div>
-		  	<a class="btn btn-primary btn-lg" ng-href="#!/userBoards" role="button">Boards</a>
-		  	<a class="btn btn-primary btn-lg" ng-href="#!/userPins" role="button">Pins</a>
+		  	<a class="btn btn-primary btn-lg" ng-href="#!/userBoards" role="button" id="userBoards">Boards</a>
+		  	<a class="btn btn-primary btn-lg" id="userPins" ng-href="#!/userPins" role="button">Pins</a>
 		  </div>
 	</div>
 </div>
