@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="img/finterest_logo.png"/></a>
+      <a class="navbar-brand" ng-href="#!/pins"><img src="img/finterest_logo.png"/></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,7 +23,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a ng-href="#!/PLACEHOLDER=STRETCH">Explore</a></li>
+        <li><a ng-href="#!/pins">Explore</a></li>
         <li><a ng-href="#!/profile">Profile</a></li>
         <li><a ng-href="#!/login" ng-show="!isLoggedIn">Login</a></li>
         <li><a ng-href="#!/logout" ng-show="isLoggedIn" ng-controller="authCtrl" ng-click="logout()">Logout</a></li>
