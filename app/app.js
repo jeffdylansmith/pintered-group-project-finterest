@@ -41,6 +41,11 @@ app.config(function($routeProvider) {
 		controller: 'AddPinCtrl',
 		resolve: {isAuth}
 	})
+    .when('/pins/:pinId', {
+        templateUrl: 'partials/add-pin.html',
+        controller: 'AddPinCtrl',
+        resolve: {isAuth}
+    })
     .when('/userBoards', {
         templateUrl: 'partials/boards-view.html',
         controller: 'BoardsViewCtrl',
