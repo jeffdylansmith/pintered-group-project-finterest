@@ -6,7 +6,7 @@ app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope, $ro
 	console.log("~ BoardsViewCtrl yay! ~", $routeParams);
 	let user = authFactory.getUser();
 	$scope.getBoards = (user) => {
-		
+
 		DataFactory.getUserBoards(user)
 		.then((userBoards) => {
 			console.log(userBoards);
@@ -15,7 +15,7 @@ app.controller("BoardsViewCtrl", function (authFactory, DataFactory, $scope, $ro
 	};
 
 	$scope.addBoard = (newBoardName) => {
-		
+
 		console.log("newBoardName", newBoardName);
 		DataFactory.addBoard(newBoardName)
 		.then(() => {

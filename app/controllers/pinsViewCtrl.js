@@ -13,7 +13,5 @@ app.controller("PinsViewCtrl", function (DataFactory, $scope, $location) {
 		});
 	};
 
-	
-
 	$scope.getAllPins();
 });
