@@ -1,4 +1,5 @@
 // Navbar tweaks
+
 .navbar {
 	padding-bottom: 20px;
 }
@@ -12,4 +13,23 @@
 // Bumping anything in main content below fixed-navbar down so it's not hidden underneath it
 #main-content {
 	margin-top: 100px;
+}
+
+.row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap: 1em;
+
+}
+
+.fuck {
+ display: inline-block;
+ margin:  0.25rem;
+ padding:  1rem;
+ width:  100%;
+}
+
+.thumbnail, .caption {
+	display: inline-block;
 }
