@@ -4,7 +4,7 @@
 
 app.controller("UserPinsCtrl", function (DataFactory, $scope, $location, authFactory) {
 	console.log("~ UserPinsCtrl yay! ~");
-	
+
 	$scope.getUserPins = function(){
 		let user = authFactory.getUser();
 		console.log("user", user);

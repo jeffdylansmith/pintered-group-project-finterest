@@ -194,7 +194,7 @@ const getUserPins = (userId) => {
     .then((itemObject) => {
     let itemCollection = itemObject.data;
     Object.keys(itemCollection).forEach((key) => {
-    itemCollection[key].boardId = key;
+    itemCollection[key].pinId = key;
     userPins.push(itemCollection[key]);
     });
     resolve(userPins);
