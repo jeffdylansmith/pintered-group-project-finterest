@@ -1,4 +1,5 @@
 <div ng-controller="ProfileCtrl" class="jumbotron">
+
 	<div class="container">
 		  <h3>Username goes here: {{currentUser}}</h3>
 		  <div>
@@ -6,4 +7,11 @@
 		  	<a class="btn btn-primary btn-lg" ng-href="#!/userPins" role="button">Pins</a>
 		  </div>
 	</div>
+
+	  <h3>{{currentUser}}</h3>
+	  <div class="row">
+	  	<a class="btn btn-primary btn-lg" ng-href="#!/userBoards" role="button">Boards</a>
+	  	<a class="btn btn-primary btn-lg" ng-href="#!/userPins" role="button">Pins</a>
+	  </div>
+
 </div>
