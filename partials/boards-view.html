@@ -1,5 +1,9 @@
-<div ng-include="'partials/profile.html'"></div>
+<!-- show profile bar -->
+<div ng-include="'/partials/profile.html'"></div>
+
+<!--user boards-->
 <div class="container">
+	<h4>Boards</h4>
 	<div ng-repeat="board in boards">
 		<a href="#!/userBoards/{{board.boardId}}" id="{{board.boardId}}"><h3>{{board.title}}</h3></a>
     <span ng-click="removeBoard(board)" class="glyphicon glyphicon-remove"></span>
