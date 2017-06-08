@@ -51,12 +51,16 @@ let currentUser = null,
         return currentUser;
     };
 
+    let getUserName = function() {
+        return currentUserName;
+    };
+
 	let authWithProvider= function(provider){
         return firebase.auth().signInWithPopup(provider);
     };
 
 
-    return {createUser, loginUser, logoutUser, isAuthenticated, getUser, authWithProvider};
+    return {createUser, loginUser, logoutUser, isAuthenticated, getUser, authWithProvider, getUserName};
 
 
 	//currentUser, createUser, loginUser, logoutUser, isAuthenticated getUser
