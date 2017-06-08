@@ -1,18 +1,21 @@
+<br>
+<br>
+<br>
 <div class="container">
 	<form class="form--demo">
 		<label for="url">Url: </label>
-		<input type="text" id="url" class="form-control" placeholder="https://..." ng-model="pin.url">
+		<input type="text" id="url" class="form-control" placeholder="https://..." ng-model="pin.url"><br>
 
 		<label for="titel">Title: </label>
-		<input type="text" id="title" class="form-control" placeholder="Enter Title" ng-model="pin.title">
+		<input type="text" id="title" class="form-control" placeholder="Enter Title" ng-model="pin.title"><br>
 
 		<label for="getboard">Board: </label>
 		<select ng-model="pin.boardid" id="getboard">
 			<option ng-repeat="board in boards" value="{{board.boardId}}">
 				{{board.title}}
 			</option>
-		</select>
+		</select><br><br>
 
-		<button class="btn" type="reset" ng-click="addPin(event)">Add Pin</button>
+		<button class="btn btn-primary" type="reset" ng-click="addPin(event)">Add Pin</button>
 	</form>
 </div>
