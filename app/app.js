@@ -51,6 +51,11 @@ app.config(function($routeProvider) {
         controller: 'BoardsViewCtrl',
         resolve: {isAuth}
     })
+    .when('/profile', {
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileCtrl',
+        resolve: {isAuth}
+    })
     .when('/userBoards/:boardId', {
     	templateUrl:'partials/user-pins',
     	controller: 'BoardPinsCtrl'

@@ -217,6 +217,20 @@ const getBoardPins = (boardId) => {
   });
 };
 
+//Get username for profile partial
+const getUserName = (userId) => {
+    let userName = "";
+    return $q((resolve, reject) => {
+    $http.get(`${FBcreds.databaseURL}/users.json?orderBy="uid"&equalTo="${userId}"`)
+    .then((itemObject) => {
+    let itemCollection = itemObject.data;
+    userName = itemCollection.name;
+    });
+    resolve(userName);
+    });
+  };
+
+
  return {
     addPin,
     addUser,
@@ -231,7 +245,8 @@ const getBoardPins = (boardId) => {
     editBoard,
     getUserBoards,
     getAllBoards,
-    removeBoard
+    removeBoard,
+    getUserName
   };
 
 });
