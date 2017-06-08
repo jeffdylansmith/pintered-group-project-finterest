@@ -1,11 +1,12 @@
 <div class="container">
+<br><input type="text" class="form-control" placeholder="Search"  ng-model="search">
 	<div class="row butt" id="demo">
-		<div class="fuck col-sm-3" ng-repeat="pin in pins">
+		<div class="fuck col-sm-3" ng-repeat="pin in pins | filter: search">
 			<div class="thumbnail">
-				<img src="{{pin.url}}" class="img-responsive">
+				<img src="{{pin.url}}" class="img-responsive" id="{{pin.title}}">
 				<div class="caption">
-				<p>{{pin.title}}</p>
-					<a href="#!/pins/{{pin.pinId}}"><button class="btn btn-responsive">Save Pin</button></a>
+				<!-- <p class="pinTitle"></p>
+ -->					<a href="#!/pins/{{pin.pinId}}"><button class="btn btn-responsive">Save Pin</button></a>
 				</div>
 			</div>
 		</div>
