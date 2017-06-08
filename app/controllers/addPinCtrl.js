@@ -2,7 +2,7 @@
 
 //add new pin to FB
 
-app.controller("AddPinCtrl", function ($scope, DataFactory, authFactory, $routeParams) {
+app.controller("AddPinCtrl", function ($scope, $window, DataFactory, authFactory, $routeParams, $location) {
 	console.log("~ AddPinCtrl yay! ~");
 	// body...
 
@@ -35,5 +35,6 @@ app.controller("AddPinCtrl", function ($scope, DataFactory, authFactory, $routeP
 	$scope.addPin = (event) => {
 		console.log($scope.pin);
 		DataFactory.addPin($scope.pin);
+		$location.path('/pins');
 	};
 });
