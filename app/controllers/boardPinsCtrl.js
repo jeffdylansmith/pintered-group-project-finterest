@@ -8,4 +8,10 @@ app.controller("BoardPinsCtrl", function(authFactory, DataFactory, $scope, $rout
 		console.log("pins", pins);
 		$scope.pins = pins;
 	});
+
+	$scope.removePin = (pin) => {
+		console.log("Hey", pin);
+		DataFactory.removePin(pin.pinId);
+		$scope.getUserPins();
+	};
 });
